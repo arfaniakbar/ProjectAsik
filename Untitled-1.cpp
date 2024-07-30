@@ -23,7 +23,6 @@ double hitungKecepatanDetik(double totalWaktuMenit, double totalWaktuDetik, doub
 string tentukanIntensitas(double kecepatanDetik) {
     double kecepatanMph = kecepatanDetik * 0.0372823; 
     double paceMenit = 3600 / (kecepatanDetik * 60); 
-
     if (kecepatanMph < 3) {
         return "Intensitas Ringan: Pace lebih dari 20 menit per mil";
     } else if (kecepatanMph >= 3 && kecepatanMph < 4) {
@@ -53,11 +52,15 @@ string rekomendasi(string jenisKelamin, int umur) {
     }
     return "";
 
-}
 
 }
+
 
 int main() {
+    vector<DataLari> dataLariArray;
+    const int MAX_SIMPANAN = 5;
+
+
     int pilihan;
     do {
         cout << "=== Program Penghitung Pace Lari ===" << endl;
@@ -66,14 +69,36 @@ int main() {
         cout << "3. Keluar" << endl;
         cout << "Masukkan pilihan Anda: ";
         cin >> pilihan;
+
         switch (pilihan) {
             case 1: {
                 
+
                 cout << "" << endl;
+                if (dataLariArray.size() >= MAX_SIMPANAN) {
+                    dataLariArray.erase(dataLariArray.begin());
+                }
+
+                DataLari data;
+                cout << "Masukkan nama Anda: ";
+                cin >> data.nama;
+                cout << "Masukkan jenis kelamin (pria/wanita): ";
+                cin >> data.jenisKelamin;
+                cout << "Masukkan total waktu lari (menit): ";
+                cin >> data.totalWaktuMenit;
+                cout << "Masukkan total waktu lari (detik): ";
+                cin >> data.totalWaktuDetik;
+                cout << "Masukkan total jarak lari (kilometer): ";
+                cin >> data.totalJarak;
+
+                dataLariArray.push_back(data);
+                cout << "Data lari berhasil disimpan." << endl;
                 break;
             }
+
             case 2: {
                 
+
                 cout << "" << endl;
                 break;
             }
