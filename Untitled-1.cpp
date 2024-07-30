@@ -1,4 +1,3 @@
-#include<iostream>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +5,6 @@ using namespace std;
 
 int main() {
     cout << "Hello, World!" << endl;
-    return 0;
 
 
     do {
@@ -16,4 +14,4 @@ int main() {
         cout << "3. Keluar" << endl;
         cout << "Masukkan pilihan Anda: ";
         return 0;
-    }
+}
