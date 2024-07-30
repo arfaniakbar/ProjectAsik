@@ -9,13 +9,11 @@ struct DataLari {
     double totalWaktuMenit;
     double totalWaktuDetik;
     double totalJarak;
-
     // Fungsi untuk menghitung pace
 double hitungPace(double totalWaktuMenit, double totalWaktuDetik, double totalJarak) {
     double totalWaktu = totalWaktuMenit + (totalWaktuDetik / 60.0);
     return totalWaktu / totalJarak;
 }
-
 // Fungsi untuk menghitung kecepatan (speed) dalam satuan detik
 double hitungKecepatanDetik(double totalWaktuMenit, double totalWaktuDetik, double totalJarak) {
     double totalWaktuDetikTotal = (totalWaktuMenit * 60) + totalWaktuDetik;
@@ -36,12 +34,30 @@ string tentukanIntensitas(double kecepatanDetik) {
         return "Intensitas Tinggi: Pace kurang dari 12 menit per mil";
     }
 }
+// Fungsi untuk menentukan rekomendasi berdasarkan umur dan jenis kelamin
+string rekomendasi(string jenisKelamin, int umur) {
+    if (jenisKelamin == "pria") {
+        if (umur <= 30)
+            return "Pace yang sangat bagus.";
+        else if (umur <= 45)
+            return "Pace yang baik.";
+        else
+            return "Pace yang lumayan.";
+    } else if (jenisKelamin == "wanita") {
+        if (umur <= 30)
+            return "Pace yang sangat bagus.";
+        else if (umur <= 45)
+            return "Pace yang baik.";
+        else
+            return "Pace yang lumayan.";
+    }
+    return "";
 
 }
 
+}
 
 int main() {
-
     int pilihan;
     do {
         cout << "=== Program Penghitung Pace Lari ===" << endl;
